@@ -1,0 +1,28 @@
+/* MovieCard.css */
+
+.movie-card {
+    width: 100%;
+    max-width: 300px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬을 위한 마진 설정 */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .movie-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .movie-card p {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
