@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import SwiperContainer from './Swiper';
+import './App.css';
 import axios from 'axios';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import MovieCard from './MovieCard';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import Navbar from './Navbar'; // Navbar 컴포넌트 불러오기
 
 function App() {
-  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -29,27 +26,18 @@ function App() {
     fetchMovies();
   }, []);
   console.log(movies);
-
-  if (isLoading) {
-    return <div>로딩 중...</div>; // 데이터가 로드되는 동안 로딩 메시지를 표시합니다.
-  }
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      {movies.map(movie => (
-        <SwiperSlide key={movie.id}>
-          <MovieCard movie={movie}></MovieCard>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <>
+      <Navbar 
+        setIsLogin={setIsLogin} 
+        isLogin={isLogin} 
+      />
+      { 
+        isLoading?
+        <div>로딩 중...</div> :
+        <SwiperContainer movies={movies}/>
+      }
+    </>
   );
 }
 

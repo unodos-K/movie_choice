@@ -1,6 +1,41 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+}
+
+/* Swiper 컨테이너의 기본 스타일 */
+.swiper {
+  width: 80%;
+  height: 100%;
+  padding-top: 200px;
+}
+
+/* 모든 슬라이드에 공통적용되는 스타일 */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 슬라이드 간격 조정 */
+.swiper-slide {
+  margin-right: 10px;
+}
+
+/* 네비게이션 버튼 스타일 */
+.swiper-button-next, .swiper-button-prev {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 20%;
+}
+
+/* 페이지네이션 스타일 */
+.swiper-pagination-bullet {
+  background: #fff;
+}
+
+.swiper-pagination-bullet-active {
+  background: red;
 }
